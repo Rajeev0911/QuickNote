@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Notecards = (props) => {
-
+    
     return (
         props.cards.map(card => {
             return (
@@ -12,7 +12,7 @@ const Notecards = (props) => {
                         <p className="card-text">{card.notes}</p>
                     </div>
                     <div className="card-footer" id='cardFooter'>
-                        <span className="material-symbols-outlined" onClick={card.deleteNote} style={{ cursor: "pointer" }}>
+                        <span className="material-symbols-outlined" onClick={() => props.deleteNote(card.sno)} style={{ cursor: "pointer" }}>
                             delete
                         </span>
                     </div>

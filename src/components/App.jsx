@@ -18,7 +18,7 @@ export default function App() {
 
 
   // Function to generate serial number
-  function serialNumber(){
+  function serialNumber() {
     setSno(sno + 1)
   }
 
@@ -33,20 +33,19 @@ export default function App() {
     serialNumber(); //Invoking the serialNumber function to add serial numbers to each note cards
 
     //Alerting the user on clicking the button without filling the input
-    if ( !title || !notes ) {
+    if (!title || !notes) {
       alert("Fill out both the inputs to make a note.");
       setCards([]);
       setSno(1); //To not increase the count of the serial numbers when the user clicks on add notes button without filling the inputs. It sets the value of sno again to 1 if the inputs are empty and the user clicked the add note button
     }
-  }
-
+  };
 
   //Function to delete a note
-  function deleteNote(){
-    return cards.filter(card => {
-      return card.sno == 0;
+  function deleteNote(sno) {
+    setCards(currentCards => {
+      return currentCards.filter(card => card.sno != sno)
     })
-  };
+  }
 
 
   //Function to clear the text
@@ -66,7 +65,7 @@ export default function App() {
       <div className='container py-3'>
         <h3>Your Notes:</h3>
         <div className='bg-warning-subtle p-5'>
-          {(cards.length === 0) ? <h6>Add notes...</h6> : <Notecards cards={cards} deleteNote={deleteNote}/>}
+          {(cards.length === 0) ? <h6>Add notes...</h6> : <Notecards cards={cards} deleteNote={deleteNote} sno={sno} />}
         </div>
       </div>
     </>
