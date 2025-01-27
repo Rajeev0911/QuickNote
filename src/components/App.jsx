@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <>
-      <h1 className='text-center'>Note Making App</h1>
+      <h1 className='text-center'>QuickNote</h1>
       <div className='container bg-body-tertiary p-3'>
         <h3>Add Notes Here:</h3>
         <Addnote handleSubmit={handleSubmit} addNote={addNote} clearText={clearText} title={title} setTitle={setTitle} notes={notes} setNotes={setNotes} />
